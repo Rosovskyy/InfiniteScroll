@@ -12,8 +12,7 @@ class ScrollViewController: UIViewController {
 
     // MARK: -Properties
     var fetchingMore = false
-    var comments: [Comment] = [Comment(postId: 1, id: 1, name: "Serhii", email: "rosovskyy@ucu.edu.ua", body: "Hello world")]
-//    var items: [Int] = []
+    var comments: [Comment] = []
 
     var lowerBound = 0
     var upperBound = 0
@@ -23,8 +22,8 @@ class ScrollViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setInitialItems()
         self.tableViewConfiguration()
+        self.setInitialItems()
     }
 
     func tableViewConfiguration() {
@@ -34,8 +33,6 @@ class ScrollViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
-//        self.tableView.rowHeight = UIScreen.main.bounds.height / 11
-
         self.tableView.reloadData()
     }
 
@@ -44,15 +41,23 @@ class ScrollViewController: UIViewController {
             if self.lowerBound > self.upperBound {
                 break
             }
-            parseJson(commentId: number)
-//            items.append(number)
-            print(self.comments.count)
+            parseJson(commentId: number) { [weak self] comment in
+//                self?.comments.append(comment)
+                if self?.comments.count == 0 {
+                    self?.comments.append(comment)
+                } else {
+                    self?.findPosition(comment: comment)
+                }
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            }
             self.lowerBound += 1
         }
     }
 
     // MARK: -Functions
-    func parseJson(commentId: Int) {
+    func parseJson(commentId: Int, completion: @escaping (Comment) -> (Void)) {
         let jsonURL = "https://jsonplaceholder.typicode.com/comments/\(commentId)"
 
         guard let url = URL(string: jsonURL) else { return }
@@ -62,13 +67,30 @@ class ScrollViewController: UIViewController {
 
             do {
                 let comment: Comment = try JSONDecoder().decode(Comment.self, from: data)
-                self.comments.append(comment)
-                print(self.comments.count)
+                print("Comment - \(commentId)")
+                completion(comment)
+//                print("Number - \(self.comments.count)")
             } catch let err {
                 print("Something failed: \(err)")
             }
         }
         task.resume()
+    }
+
+    func findPosition(comment: Comment) {
+        var put = false
+        for index in 0..<self.comments.count {
+            if self.comments.contains(obj: comment) {
+                continue
+            }
+            if self.comments[index].id >= comment.id {
+                self.comments.insert(comment, at: index)
+                put = true
+            }
+        }
+        if !put {
+            self.comments.append(comment)
+        }
     }
 }
 
@@ -80,7 +102,6 @@ extension ScrollViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-//            return items.count
             return comments.count
         } else if section == 1 && fetchingMore {
             return 1
@@ -91,8 +112,7 @@ extension ScrollViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
-            cell.textLabel?.text = "\(self.comments[indexPath.row].name)"
-//            cell.textLabel?.text = "Item \(items[indexPath.row])"
+            cell.textLabel?.text = "\(self.comments[indexPath.row].id) - \(self.comments[indexPath.row].name)"
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as! LoadingCell
@@ -117,15 +137,18 @@ extension ScrollViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.reloadSections(IndexSet(integer: 1), with: .none)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
             for number in self.lowerBound+1...self.lowerBound+10 {
-                if number > self.upperBound {
+                if self.lowerBound > self.upperBound {
                     break
                 }
-//                self.items.append(number)
                 self.lowerBound += 1
-                self.parseJson(commentId: number)
+                self.parseJson(commentId: number) {[weak self] comment in
+//                    self?.comments.append(comment)
+                    self?.findPosition(comment: comment)
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+                }
             }
-//            let newItems = (self.items.count+1...self.items.count + 10).map { index in index }
-//            self.items.append(contentsOf: newItems)
             self.fetchingMore = false
             self.tableView.reloadData()
         })

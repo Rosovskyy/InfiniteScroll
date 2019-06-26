@@ -9,7 +9,11 @@
 import Foundation
 
 
-struct Comment: Decodable {
+struct Comment: Decodable, Comparable {
+    static func < (lhs: Comment, rhs: Comment) -> Bool {
+        return lhs.id < rhs.id
+    }
+
     let postId: Int
     let id: Int
     let name: String

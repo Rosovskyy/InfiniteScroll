@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C941633D22C3951F006D66E6 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941633C22C3951F006D66E6 /* Array+Extension.swift */; };
 		C9AAED9722C358AC009A4897 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAED9622C358AC009A4897 /* AppDelegate.swift */; };
 		C9AAED9922C358AC009A4897 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAED9822C358AC009A4897 /* ViewController.swift */; };
 		C9AAED9C22C358AC009A4897 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AAED9A22C358AC009A4897 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C941633C22C3951F006D66E6 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		C9AAED9322C358AC009A4897 /* InfineScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfineScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9AAED9622C358AC009A4897 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9AAED9822C358AC009A4897 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C941633B22C39510006D66E6 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C941633C22C3951F006D66E6 /* Array+Extension.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
 		C9AAED8A22C358AC009A4897 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +72,7 @@
 		C9AAED9522C358AC009A4897 /* InfineScroll */ = {
 			isa = PBXGroup;
 			children = (
+				C941633B22C39510006D66E6 /* helpers */,
 				C9AAEDB222C36A6D009A4897 /* VC */,
 				C9AAEDAD22C36803009A4897 /* Cell */,
 				C9AAEDAA22C36347009A4897 /* Model */,
@@ -175,6 +186,7 @@
 				C9AAED9922C358AC009A4897 /* ViewController.swift in Sources */,
 				C9AAEDA922C35C66009A4897 /* ScrollViewController.swift in Sources */,
 				C9AAED9722C358AC009A4897 /* AppDelegate.swift in Sources */,
+				C941633D22C3951F006D66E6 /* Array+Extension.swift in Sources */,
 				C9AAEDAC22C36353009A4897 /* Comment.swift in Sources */,
 				C9AAEDB022C36821009A4897 /* LoadingCell.swift in Sources */,
 			);
