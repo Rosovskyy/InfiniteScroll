@@ -41,6 +41,15 @@ class ViewController: UIViewController {
         self.upperBoundTextField.delegate = self
     }
 
+    /**
+        Alert, which shows you that the problem occured.
+    */
+    func alertCall() {
+        let alert = UIAlertController(title: "Wrong Input", message: "Enter two positive numbers\nThe first one is less than the second one", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Wrong!", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     // MARK: -Actions
     /**
         When the button is clicked, we get the data from the text fields
@@ -52,12 +61,13 @@ class ViewController: UIViewController {
         if let lowerBound = Int(self.lowerBoundTextField.text!), let upperBound = Int(self.upperBoundTextField.text!) {
             self.lowerBound = lowerBound
             self.upperBound = upperBound
-            performSegue(withIdentifier: "getCommentsDummy", sender: self)
+            if self.lowerBound > self.upperBound {
+                alertCall()
+            } else {
+                performSegue(withIdentifier: "getCommentsDummy", sender: self)
+            }
         } else {
-            let alert = UIAlertController(title: "Wrong Input", message: "Enter two numbers", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Wrong!", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-
+            alertCall()
         }
     }
 

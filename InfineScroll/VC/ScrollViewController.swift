@@ -157,17 +157,6 @@ extension ScrollViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.alpha = 0
-
-        UIView.animate(
-            withDuration: 0.1,
-            delay: 0.01 * Double(indexPath.row),
-            animations: {
-                cell.alpha = 1
-        })
-    }
-
     // MARK: -ScrollView
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
@@ -186,10 +175,9 @@ extension ScrollViewController: UITableViewDataSource, UITableViewDelegate {
     */
     func loadMoreData() {
         loadMore = true
-        tableView.reloadSections(IndexSet(integer: 1), with: .none)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
-            for number in self.lowerBound+1...self.lowerBound+10 {
-                if self.lowerBound > self.upperBound {
+            for number in self.lowerBound+1..<self.lowerBound+11 {
+                if self.lowerBound >= self.upperBound {
                     break
                 }
                 self.lowerBound += 1
@@ -201,7 +189,6 @@ extension ScrollViewController: UITableViewDataSource, UITableViewDelegate {
                 }
             }
             self.loadMore = false
-            self.tableView.reloadData()
         })
     }
 }
