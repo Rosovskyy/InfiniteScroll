@@ -10,6 +10,10 @@ import Foundation
 
 
 extension Array {
+    /**
+        It allows us to write only needed set of characters
+        in the text field
+    */
     func contains<T>(obj: T) -> Bool where T : Equatable {
         return self.filter({$0 as? T == obj}).count > 0
     }

@@ -1,0 +1,6 @@
+framework module Pods_InfineScroll {
+  umbrella header "Pods-InfineScroll-umbrella.h"
+
+  export *
+  module * { export * }
+}

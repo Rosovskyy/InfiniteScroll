@@ -10,10 +10,17 @@ import Foundation
 
 
 struct Comment: Decodable, Comparable {
+
+    /**
+        The function, which makes the structure comparable.
+    */
     static func < (lhs: Comment, rhs: Comment) -> Bool {
         return lhs.id < rhs.id
     }
 
+    /**
+        Comments fields, which we get out of the api request.
+    */
     let postId: Int
     let id: Int
     let name: String

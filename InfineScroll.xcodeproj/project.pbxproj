@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		518E9AB0E2F6290A1807256E /* Pods_InfineScroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB61F519859CA302C6606A06 /* Pods_InfineScroll.framework */; };
 		C941633D22C3951F006D66E6 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941633C22C3951F006D66E6 /* Array+Extension.swift */; };
+		C959597422C3BCCE00A44044 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959597322C3BCCE00A44044 /* CommentCell.swift */; };
 		C9AAED9722C358AC009A4897 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAED9622C358AC009A4897 /* AppDelegate.swift */; };
 		C9AAED9922C358AC009A4897 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAED9822C358AC009A4897 /* ViewController.swift */; };
 		C9AAED9C22C358AC009A4897 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AAED9A22C358AC009A4897 /* Main.storyboard */; };
@@ -20,7 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0112DDBD4F34F1EBA559E185 /* Pods-InfineScroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfineScroll.debug.xcconfig"; path = "Target Support Files/Pods-InfineScroll/Pods-InfineScroll.debug.xcconfig"; sourceTree = "<group>"; };
+		02EF9CDAEC915A36C9CE6006 /* Pods-InfineScroll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfineScroll.release.xcconfig"; path = "Target Support Files/Pods-InfineScroll/Pods-InfineScroll.release.xcconfig"; sourceTree = "<group>"; };
 		C941633C22C3951F006D66E6 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		C959597322C3BCCE00A44044 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		C9AAED9322C358AC009A4897 /* InfineScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfineScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9AAED9622C358AC009A4897 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9AAED9822C358AC009A4897 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +37,7 @@
 		C9AAEDAB22C36353009A4897 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		C9AAEDAE22C36821009A4897 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		C9AAEDAF22C36821009A4897 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		EB61F519859CA302C6606A06 /* Pods_InfineScroll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfineScroll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,12 +45,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				518E9AB0E2F6290A1807256E /* Pods_InfineScroll.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7AC6FD682367706B40B5F21B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB61F519859CA302C6606A06 /* Pods_InfineScroll.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		865E89EC31E6FD759A302945 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0112DDBD4F34F1EBA559E185 /* Pods-InfineScroll.debug.xcconfig */,
+				02EF9CDAEC915A36C9CE6006 /* Pods-InfineScroll.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C941633B22C39510006D66E6 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +82,8 @@
 			children = (
 				C9AAED9522C358AC009A4897 /* InfineScroll */,
 				C9AAED9422C358AC009A4897 /* Products */,
+				865E89EC31E6FD759A302945 /* Pods */,
+				7AC6FD682367706B40B5F21B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +124,7 @@
 			children = (
 				C9AAEDAE22C36821009A4897 /* LoadingCell.swift */,
 				C9AAEDAF22C36821009A4897 /* LoadingCell.xib */,
+				C959597322C3BCCE00A44044 /* CommentCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -118,9 +145,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9AAEDA522C358AE009A4897 /* Build configuration list for PBXNativeTarget "InfineScroll" */;
 			buildPhases = (
+				9C0FE8D4EBD1E5DAE9112083 /* [CP] Check Pods Manifest.lock */,
 				C9AAED8F22C358AC009A4897 /* Sources */,
 				C9AAED9022C358AC009A4897 /* Frameworks */,
 				C9AAED9122C358AC009A4897 /* Resources */,
+				29A32435A8F8A83883D9751C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -178,6 +207,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		29A32435A8F8A83883D9751C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InfineScroll/Pods-InfineScroll-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InfineScroll/Pods-InfineScroll-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C0FE8D4EBD1E5DAE9112083 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InfineScroll-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C9AAED8F22C358AC009A4897 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -189,6 +265,7 @@
 				C941633D22C3951F006D66E6 /* Array+Extension.swift in Sources */,
 				C9AAEDAC22C36353009A4897 /* Comment.swift in Sources */,
 				C9AAEDB022C36821009A4897 /* LoadingCell.swift in Sources */,
+				C959597422C3BCCE00A44044 /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +409,7 @@
 		};
 		C9AAEDA622C358AE009A4897 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0112DDBD4F34F1EBA559E185 /* Pods-InfineScroll.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -350,6 +428,7 @@
 		};
 		C9AAEDA722C358AE009A4897 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02EF9CDAEC915A36C9CE6006 /* Pods-InfineScroll.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
