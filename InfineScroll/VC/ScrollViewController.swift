@@ -13,7 +13,7 @@ class ScrollViewController: UIViewController {
     // MARK: -Properties
     var fetchingMore = false
     var comments: [Comment] = [Comment(postId: 1, id: 1, name: "Serhii", email: "rosovskyy@ucu.edu.ua", body: "Hello world")]
-    var items: [Int] = []
+//    var items: [Int] = []
 
     var lowerBound = 0
     var upperBound = 0
@@ -45,8 +45,8 @@ class ScrollViewController: UIViewController {
                 break
             }
             parseJson(commentId: number)
-            print(comments)
 //            items.append(number)
+            print(self.comments.count)
             self.lowerBound += 1
         }
     }
@@ -63,13 +63,10 @@ class ScrollViewController: UIViewController {
             do {
                 let comment: Comment = try JSONDecoder().decode(Comment.self, from: data)
                 self.comments.append(comment)
+                print(self.comments.count)
             } catch let err {
                 print("Something failed: \(err)")
             }
-
-            OperationQueue.main.addOperation({
-                self.tableView.reloadData()
-            })
         }
         task.resume()
     }
@@ -83,7 +80,8 @@ extension ScrollViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return items.count
+//            return items.count
+            return comments.count
         } else if section == 1 && fetchingMore {
             return 1
         }
@@ -93,8 +91,6 @@ extension ScrollViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
-            print(indexPath.row)
-            print(self.comments)
             cell.textLabel?.text = "\(self.comments[indexPath.row].name)"
 //            cell.textLabel?.text = "Item \(items[indexPath.row])"
             return cell
