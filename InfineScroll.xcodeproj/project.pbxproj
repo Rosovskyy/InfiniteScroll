@@ -69,6 +69,32 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C91AACFE22C3D62800E23B06 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				C9AAED9A22C358AC009A4897 /* Main.storyboard */,
+				C9AAED9F22C358AE009A4897 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		C91AACFF22C3D64D00E23B06 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C9AAED9D22C358AE009A4897 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C91AAD0022C3D65E00E23B06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C9AAED9622C358AC009A4897 /* AppDelegate.swift */,
+				C9AAEDA222C358AE009A4897 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C941633B22C39510006D66E6 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,15 +124,13 @@
 		C9AAED9522C358AC009A4897 /* InfineScroll */ = {
 			isa = PBXGroup;
 			children = (
+				C91AACFE22C3D62800E23B06 /* StoryBoards */,
 				C941633B22C39510006D66E6 /* helpers */,
-				C9AAEDB222C36A6D009A4897 /* VC */,
 				C9AAEDAD22C36803009A4897 /* Cell */,
+				C9AAEDB222C36A6D009A4897 /* VC */,
 				C9AAEDAA22C36347009A4897 /* Model */,
-				C9AAED9622C358AC009A4897 /* AppDelegate.swift */,
-				C9AAED9A22C358AC009A4897 /* Main.storyboard */,
-				C9AAED9D22C358AE009A4897 /* Assets.xcassets */,
-				C9AAED9F22C358AE009A4897 /* LaunchScreen.storyboard */,
-				C9AAEDA222C358AE009A4897 /* Info.plist */,
+				C91AAD0022C3D65E00E23B06 /* Supporting Files */,
+				C91AACFF22C3D64D00E23B06 /* Resources */,
 			);
 			path = InfineScroll;
 			sourceTree = "<group>";
@@ -414,7 +438,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AAXBU9249F;
-				INFOPLIST_FILE = InfineScroll/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/InfineScroll/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,7 +457,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AAXBU9249F;
-				INFOPLIST_FILE = InfineScroll/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/InfineScroll/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
